@@ -1,45 +1,7 @@
 package HVDC_LCC
   package BasicElements
     package Electrical
-      package Tests
-        model testResistance
-          HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSourceAC Vs(Vang = 0) annotation(
-            Placement(visible = true, transformation(origin = {-114, 0}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.Phasor.Resistor resistor1 annotation(
-            Placement(visible = true, transformation(origin = {-55, 1}, extent = {{-23, -23}, {23, 23}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.Phasor.Ground ground1 annotation(
-            Placement(visible = true, transformation(origin = {75, -51}, extent = {{-19, -19}, {19, 19}}, rotation = 0)));
-  HVDC_LCC.BasicElements.Electrical.Phasor.Resistor resistor2 annotation(
-            Placement(visible = true, transformation(origin = {13, 1}, extent = {{-25, -25}, {25, 25}}, rotation = 0)));
-        equation
-          connect(resistor2.negativePin, ground1.pin) annotation(
-            Line(points = {{38, 2}, {76, 2}, {76, -50}, {76, -50}}, color = {0, 0, 255}));
-          connect(resistor1.negativePin, resistor2.positivePin) annotation(
-            Line(points = {{-32, 0}, {-12, 0}, {-12, 2}, {-12, 2}}, color = {0, 0, 255}));
-          connect(resistor1.positivePin, Vs.pin) annotation(
-            Line(points = {{-78, 0}, {-96, 0}, {-96, 0}, {-96, 0}}, color = {0, 0, 255}));
-        end testResistance;
-
-        model testInductance
-          HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSourceAC Vs(Vang = 0) annotation(
-            Placement(visible = true, transformation(origin = {-58, 0}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.Phasor.Ground ground1 annotation(
-            Placement(visible = true, transformation(origin = {96, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HVDC_LCC.BasicElements.Electrical.Phasor.Reactor reactor1 annotation(
-            Placement(visible = true, transformation(origin = {7, 1}, extent = {{-21, -21}, {21, 21}}, rotation = 0)));
-  HVDC_LCC.BasicElements.Electrical.Phasor.Reactor reactor2 annotation(
-            Placement(visible = true, transformation(origin = {61, 1}, extent = {{-21, -21}, {21, 21}}, rotation = 0)));
-        equation
-          connect(reactor2.negativePin, ground1.pin) annotation(
-            Line(points = {{82, 2}, {96, 2}, {96, -44}, {96, -44}}, color = {0, 0, 255}));
-          connect(reactor1.negativePin, reactor2.positivePin) annotation(
-            Line(points = {{28, 2}, {40, 2}, {40, 2}, {40, 2}}, color = {0, 0, 255}));
-          connect(Vs.pin, reactor1.positivePin) annotation(
-            Line(points = {{-40, 0}, {-16, 0}, {-16, 2}, {-14, 2}}, color = {0, 0, 255}));
-        end testInductance;
-      end Tests;
-
-      package Phasor
+  package Phasor
         connector PowerPin "Connector for electrical blocks treating voltage and current as complex variables"
           Real vr "Real part of the voltage";
           Real vi "Imaginary part of the voltage";
@@ -51,7 +13,7 @@ package HVDC_LCC
             Documentation);
         end PowerPin;
 
-        model BusAC
+        model Bus
           HVDC_LCC.BasicElements.Electrical.Phasor.PowerPin positivePin annotation(
             Placement(visible = true, transformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-20, -2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
           HVDC_LCC.BasicElements.Electrical.Phasor.PowerPin negativePin annotation(
@@ -62,7 +24,7 @@ package HVDC_LCC
           annotation(
             Diagram,
             Icon(graphics = {Rectangle(fillPattern = FillPattern.Solid, extent = {{-20, 100}, {20, -100}}), Text(origin = {55, 91}, extent = {{-31, 15}, {31, -15}}, textString = "%name")}, coordinateSystem(initialScale = 0.1)));
-        end BusAC;
+        end Bus;
 
         model Transformer2W_Ideal
           import Modelica.Constants.pi;
@@ -86,7 +48,7 @@ package HVDC_LCC
             Icon(graphics = {Ellipse(origin = {46, -26}, lineThickness = 1, extent = {{-84, 86}, {34, -34}}, endAngle = 360), Line(origin = {-75, 0}, points = {{-5, 0}, {-23, 0}}, thickness = 1), Line(origin = {74.7901, -0.389805}, points = {{23, 0}, {5, 0}}, thickness = 1), Text(origin = {-30, -83}, extent = {{-44, 21}, {18, -9}}, textString = "Primary"), Text(origin = {32, -69}, extent = {{-18, 9}, {52, -25}}, textString = "Secondary"), Ellipse(origin = {4, -26}, lineThickness = 1, extent = {{-84, 86}, {34, -34}}, endAngle = 360)}, coordinateSystem(initialScale = 0.1)));
         end Transformer2W_Ideal;
 
-        model VoltageSourceAC
+        model VoltageSource
           import Modelica.Constants.pi;
           parameter Real Vmag = 1 "Voltage magnitude (Volt)";
           parameter Real Vang = 10 "Voltage angle (degree)";
@@ -97,7 +59,7 @@ package HVDC_LCC
           pin.vi = Vmag * sin(Vang / 180 * pi);
           annotation(
             Icon(graphics = {Ellipse(origin = {63, -62}, lineThickness = 1, extent = {{-163, 162}, {37, -38}}, endAngle = 360), Line(origin = {-3.28874, -0.745477}, points = {{-77.2302, -12.3127}, {-65.2302, 3.68729}, {-49.2302, 11.6873}, {-33.2302, 13.6873}, {-15.2302, 11.6873}, {-3.23019, 3.68729}, {10.7698, -10.3127}, {28.7698, -16.3127}, {52.7698, -14.3127}, {66.7698, -4.31271}, {74.7698, 11.6873}, {74.7698, 11.6873}}, thickness = 2)}, coordinateSystem(initialScale = 0.1)));
-        end VoltageSourceAC;
+        end VoltageSource;
 
         model Resistor
           import Modelica.ComplexMath.j;
@@ -154,8 +116,6 @@ package HVDC_LCC
     end Electrical;
 
     package Control
-      package Tests
-      end Tests;
     end Control;
   end BasicElements;
   annotation(
