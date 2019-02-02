@@ -189,6 +189,44 @@ package HVDC_LCC
       end DC;
 
       package AC2DC
+        model Converter "Converter model including commutation impedance"
+          import Modelica.ComplexMath.conj;
+          import Modelica.ComplexMath.real;
+          import Modelica.ComplexMath.imag;
+          import Modelica.ComplexMath.j;
+          import Modelica.Constants.pi;
+          parameter Real Rc = 1 "Commutation Resistance, ohm";
+          parameter Real Xc = 1 "Commutation Reactance, ohm";
+          HVDC_LCC.BasicElements.Electrical.Phasor.PowerPin pinAC annotation(Placement(visible = true, transformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          HVDC_LCC.BasicElements.Electrical.DC.PowerPin pinDCp annotation(Placement(visible = true, transformation(origin = {0, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          HVDC_LCC.BasicElements.Electrical.DC.PowerPin pinDCn annotation(Placement(visible = true, transformation(origin = {0, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          Modelica.Blocks.Interfaces.RealInput alpha "Delay angle (firing angle)" annotation(Placement(visible = true, transformation(origin = {80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+          Complex Sac;
+          Real Pac, Qac;
+          Real Eac;
+          Real Pdc;
+          Real Vdc;
+          Real Idc;
+          Real phi "AC power factor";
+          Real delta "Extintion angle";
+          Real u "Commutation anlge (overlapping angle)";
+        equation
+          Vdc = pinDCp.v - pinDCn.v;
+          Idc = pinDCp.i;
+          Eac = sqrt(pinAC.vr ^ 2 + pinAC.vi ^ 2);
+          pinDCp.i + pinDCn.i = 0;
+          Sac = (pinAC.vr + j * pinAC.vi) * conj(pinAC.ir + j * pinAC.ii);
+          Pac = real(Sac);
+          Qac = imag(Sac);
+          Pdc = Vdc * Idc;
+          Pac = Pdc + 2 * Idc ^ 2 * Rc;
+          Qac = real(Sac) * tan(phi);
+          delta = alpha + u;
+          tan(phi) = (2 * u + sin(2 * alpha) - sin(2 * delta)) / (cos(2 * alpha) - cos(2 * delta));
+          cos(delta) = cos(alpha) - sqrt(2) * Idc * Xc / Eac;
+          Vdc = 3 * sqrt(2) / pi * Eac * cos(alpha) - 3 * Xc / pi * Idc - 2 * Rc * Idc;
+          annotation(Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})), Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2}), graphics = {Polygon(origin = {0.94, 1.26}, lineThickness = 1, points = {{-1.75498, 51.5836}, {64.6407, -51.1265}, {-64.6276, -51.1265}, {-1.75498, 51.5836}}), Line(origin = {0.75, 51.96}, points = {{-62.5348, 1.15271}, {63.4814, 1.42372}}, thickness = 1), Line(origin = {21.5088, 70.876}, points = {{-22.4264, 23.6459}, {-22.4264, -18.6305}}, thickness = 1), Line(origin = {21.4546, -73.8937}, points = {{-22.4264, 23.6459}, {-22.4264, -18.6305}}, thickness = 1), Line(origin = {-76.9736, -21.3733}, rotation = -90, points = {{-22.4264, 44.2421}, {-22.4264, -18.6305}}, thickness = 1), Line(origin = {51.6985, -22.5115}, rotation = -90, points = {{-22.4264, 44.2421}, {-22.4264, -18.6305}}, thickness = 1)}));
+        end Converter;
         annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})), Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})));
       end AC2DC;
     end Electrical;
