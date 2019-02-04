@@ -48,7 +48,7 @@ package HVDC_LCC
         equation
           pin.vr = Vmag * cos(Vang / 180 * pi);
           pin.vi = Vmag * sin(Vang / 180 * pi);
-          annotation(Icon(graphics = {Ellipse(origin = {63, -62}, lineThickness = 1, extent = {{-163, 162}, {37, -38}}, endAngle = 360), Line(origin = {-3.28874, -0.745477}, points = {{-77.2302, -12.3127}, {-65.2302, 3.68729}, {-49.2302, 11.6873}, {-33.2302, 13.6873}, {-15.2302, 11.6873}, {-3.23019, 3.68729}, {10.7698, -10.3127}, {28.7698, -16.3127}, {52.7698, -14.3127}, {66.7698, -4.31271}, {74.7698, 11.6873}, {74.7698, 11.6873}}, thickness = 2)}, coordinateSystem(initialScale = 0.1)));
+          annotation(Icon(graphics={  Ellipse(origin = {63, -62}, lineThickness = 1, extent = {{-163, 162}, {37, -38}}, endAngle = 360), Line(origin = {-3.28874, -0.745477}, points = {{-77.2302, -12.3127}, {-65.2302, 3.68729}, {-49.2302, 11.6873}, {-33.2302, 13.6873}, {-15.2302, 11.6873}, {-3.23019, 3.68729}, {10.7698, -10.3127}, {28.7698, -16.3127}, {52.7698, -14.3127}, {66.7698, -4.31271}, {74.7698, 11.6873}, {74.7698, 11.6873}}, thickness = 2)}, coordinateSystem(initialScale = 0.1)));
         end VoltageSource;
 
         model Resistor
@@ -59,7 +59,7 @@ package HVDC_LCC
           positivePin.vr + j * positivePin.vi - (negativePin.vr + j * negativePin.vi) = R * (positivePin.ir + j * positivePin.ii);
           positivePin.ir + negativePin.ir = 0;
           positivePin.ii + negativePin.ii = 0;
-          annotation(Icon(graphics = {Line(origin = {-3, 0.13}, points = {{-97, -0.129947}, {-49, -0.129947}, {-37, 19.8701}, {-17, -20.1299}, {3, 19.8701}, {23, -20.1299}, {43, 19.8701}, {55, -0.129947}, {97, -0.129947}}, thickness = 1)}, coordinateSystem(initialScale = 0.1)));
+          annotation(Icon(graphics={  Line(origin = {-3, 0.13}, points = {{-97, -0.129947}, {-49, -0.129947}, {-37, 19.8701}, {-17, -20.1299}, {3, 19.8701}, {23, -20.1299}, {43, 19.8701}, {55, -0.129947}, {97, -0.129947}}, thickness = 1)}, coordinateSystem(initialScale = 0.1)));
         end Resistor;
 
         model Reactor
@@ -70,7 +70,7 @@ package HVDC_LCC
           positivePin.vr + j * positivePin.vi - (negativePin.vr + j * negativePin.vi) = j * XL * (positivePin.ir + j * positivePin.ii);
           positivePin.ir + negativePin.ir = 0;
           positivePin.ii + negativePin.ii = 0;
-          annotation(Icon(graphics = {Line(origin = {-2.22, -0.04}, points = {{-97.259, 0.35146}, {-45.2594, 0.35146}, {-43.2594, 10.3515}, {-37.2594, 16.3515}, {-27.2594, 18.3515}, {-17.2594, 14.3515}, {-13.2594, 10.3515}, {-9.25937, 0.35146}, {-9.2594, -9.6485}, {-15.2594, -17.6485}, {-21.2594, -19.6485}, {-25.2594, -17.6485}, {-29.2594, -9.64854}, {-29.2594, -3.64854}, {-27.2594, 6.35146}, {-23.2594, 12.3515}, {-11.2594, 18.3515}, {0.74063, 18.3515}, {12.7406, 12.3515}, {18.7406, -1.64854}, {16.7406, -13.6485}, {8.74063, -19.6485}, {0.74063, -15.6485}, {-1.25937, -3.64854}, {0.74063, 6.35146}, {6.7406, 14.3515}, {20.7406, 18.3515}, {30.7406, 16.3515}, {38.7406, 6.35146}, {42.7406, -5.64854}, {38.7406, -15.6485}, {32.7406, -19.6485}, {24.7406, -13.6485}, {22.7406, 0.35146}, {28.7406, 10.3515}, {42.7406, 18.3515}, {50.7406, 12.3515}, {54.7406, 0.35146}, {94.7406, 0.35146}, {98.7406, 0.35146}}, thickness = 1), Line(origin = {-54, 0}, points = {{0, 0}})}));
+          annotation(Icon(graphics={  Line(origin = {-2.22, -0.04}, points = {{-97.259, 0.35146}, {-45.2594, 0.35146}, {-43.2594, 10.3515}, {-37.2594, 16.3515}, {-27.2594, 18.3515}, {-17.2594, 14.3515}, {-13.2594, 10.3515}, {-9.25937, 0.35146}, {-9.2594, -9.6485}, {-15.2594, -17.6485}, {-21.2594, -19.6485}, {-25.2594, -17.6485}, {-29.2594, -9.64854}, {-29.2594, -3.64854}, {-27.2594, 6.35146}, {-23.2594, 12.3515}, {-11.2594, 18.3515}, {0.74063, 18.3515}, {12.7406, 12.3515}, {18.7406, -1.64854}, {16.7406, -13.6485}, {8.74063, -19.6485}, {0.74063, -15.6485}, {-1.25937, -3.64854}, {0.74063, 6.35146}, {6.7406, 14.3515}, {20.7406, 18.3515}, {30.7406, 16.3515}, {38.7406, 6.35146}, {42.7406, -5.64854}, {38.7406, -15.6485}, {32.7406, -19.6485}, {24.7406, -13.6485}, {22.7406, 0.35146}, {28.7406, 10.3515}, {42.7406, 18.3515}, {50.7406, 12.3515}, {54.7406, 0.35146}, {94.7406, 0.35146}, {98.7406, 0.35146}}, thickness = 1), Line(origin = {-54, 0}, points = {{0, 0}})}));
         end Reactor;
 
         model Capacitor
@@ -115,7 +115,9 @@ package HVDC_LCC
             HVDC_LCC.BasicElements.Electrical.Phasor.Reactor reactor1(XL = XL) annotation(Placement(visible = true, transformation(origin = {-60, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
             HVDC_LCC.BasicElements.Electrical.Phasor.Resistor resistor2(R = RP) annotation(Placement(visible = true, transformation(origin = {-60, 40}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
             HVDC_LCC.BasicElements.Electrical.Phasor.Resistor resistor1(R = RS) annotation(Placement(visible = true, transformation(origin = {-120, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
+            HVDC_LCC.BasicElements.Electrical.Phasor.Ground ground1 annotation(Placement(visible = true, transformation(origin = {-140, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
           equation
+            connect(resistor1.positivePin, ground1.pin) annotation(Line(points = {{-135, 0}, {-140.023, 0}, {-140.023, -40.3649}, {-139.795, -40.3649}, {-139.795, -40.3649}}, color = {0, 0, 255}));
             connect(resistor2.negativePin, capacitor2.negativePin) annotation(Line(points = {{-45, 40}, {15.1762, 40}, {15.1762, 0}, {15.1762, 0}}, color = {0, 0, 255}));
             connect(resistor1.positivePin, resistor2.positivePin) annotation(Line(points = {{-135, 0}, {-135.501, 0}, {-135.501, 39.5664}, {-75.8808, 39.5664}, {-75.8808, 39.5664}}, color = {0, 0, 255}));
             connect(reactor1.positivePin, resistor1.negativePin) annotation(Line(points = {{-75, 0}, {-105.691, 0}, {-105.691, 0}, {-105.691, 0}}, color = {0, 0, 255}));
@@ -135,7 +137,9 @@ package HVDC_LCC
             HVDC_LCC.BasicElements.Electrical.Phasor.Resistor resistor1(R = RS) annotation(Placement(visible = true, transformation(origin = {-60, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
             HVDC_LCC.BasicElements.Electrical.Phasor.Resistor resistor2(R = RP) annotation(Placement(visible = true, transformation(origin = {0, 40}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
             HVDC_LCC.BasicElements.Electrical.Phasor.Reactor reactor1(XL = XL) annotation(Placement(visible = true, transformation(origin = {0, 0}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
+            HVDC_LCC.BasicElements.Electrical.Phasor.Ground ground1 annotation(Placement(visible = true, transformation(origin = {-100, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
           equation
+            connect(resistor1.positivePin, ground1.pin) annotation(Line(points = {{-75, 0}, {-100.114, 0}, {-100.114, -20.0684}, {-100.114, -20.0684}}, color = {0, 0, 255}));
             connect(reactor1.negativePin, capacitor1.positivePin) annotation(Line(points = {{15, 0}, {44.4444, 0}, {44.4444, 0.271003}, {44.4444, 0.271003}}, color = {0, 0, 255}));
             connect(resistor2.negativePin, capacitor1.positivePin) annotation(Line(points = {{15, 40}, {45.2575, 40}, {45.2575, -0.813008}, {45.2575, -0.813008}}, color = {0, 0, 255}));
             connect(reactor1.positivePin, resistor1.negativePin) annotation(Line(points = {{-15, 0}, {-45.691, 0}, {-45.691, 0}, {-45.691, 0}}, color = {0, 0, 255}));
@@ -295,277 +299,260 @@ package HVDC_LCC
   end BasicElements;
 
   model HVDC_12pulse_bipolar
-    HVDC_LCC.BasicElements.Electrical.Phasor.Bus bus2 annotation(Placement(visible = true, transformation(origin = {-290, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Bus bus1 annotation(Placement(visible = true, transformation(origin = {-290, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Bus bus3 annotation(Placement(visible = true, transformation(origin = {-290, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Bus bus4 annotation(Placement(visible = true, transformation(origin = {-290, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Filter.LowFreqFilter lowfreqfilter1 annotation(Placement(visible = true, transformation(origin = {-360, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Filter.HighFreqFilter highfreqfilter1 annotation(Placement(visible = true, transformation(origin = {-360, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Capacitor capacitor1 annotation(Placement(visible = true, transformation(origin = {-360, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Ground ground1 annotation(Placement(visible = true, transformation(origin = {-390, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.PowerPin powerpin1 annotation(Placement(visible = true, transformation(origin = {-380, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-380, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal1 annotation(Placement(visible = true, transformation(origin = {-260, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal2 annotation(Placement(visible = true, transformation(origin = {-260, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal3 annotation(Placement(visible = true, transformation(origin = {-260, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal4 annotation(Placement(visible = true, transformation(origin = {-260, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter1 annotation(Placement(visible = true, transformation(origin = {-220, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter2 annotation(Placement(visible = true, transformation(origin = {-220, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter3 annotation(Placement(visible = true, transformation(origin = {-220, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter4 annotation(Placement(visible = true, transformation(origin = {-220, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    BasicElements.Electrical.DC.Inductor inductor
-      annotation (Placement(transformation(extent={{-172,83},{-152,103}})));
-    BasicElements.Electrical.DC.Bus bus
-      annotation (Placement(transformation(extent={{-198,83},{-178,103}})));
-    BasicElements.Electrical.DC.Bus bus5
-      annotation (Placement(transformation(extent={{-142,83},{-122,103}})));
-    BasicElements.Electrical.DC.Resistor resistor
-      annotation (Placement(transformation(extent={{-108,83},{-88,103}})));
-    BasicElements.Electrical.DC.Inductor inductor1
-      annotation (Placement(transformation(extent={{-68,83},{-48,103}})));
-    BasicElements.Electrical.DC.Capacitor capacitor annotation (Placement(
-          transformation(
-          extent={{-10,-10},{10,10}},
-          rotation=-90,
-          origin={-38,71})));
-    BasicElements.Electrical.DC.Ground ground
-      annotation (Placement(transformation(extent={{-47,38},{-27,58}})));
-    BasicElements.Electrical.DC.Resistor resistor1
-      annotation (Placement(transformation(extent={{15,83},{35,103}})));
-    BasicElements.Electrical.DC.Inductor inductor2
-      annotation (Placement(transformation(extent={{-22,83},{-2,103}})));
-    BasicElements.Electrical.DC.Bus bus6
-      annotation (Placement(transformation(extent={{42,83},{62,103}})));
-    BasicElements.Electrical.DC.Inductor inductor3
-      annotation (Placement(transformation(extent={{63,83},{83,103}})));
-    BasicElements.Electrical.DC.Bus bus7
-      annotation (Placement(transformation(extent={{91,83},{111,103}})));
-    BasicElements.Electrical.Phasor.Bus          bus8 annotation(Placement(visible = true, transformation(origin={214,30},     extent={{10,-10},
-              {-10,10}},                                                                                                                                        rotation = 0)));
-    BasicElements.Electrical.Phasor.Bus          bus9 annotation(Placement(visible = true, transformation(origin={214,70},     extent={{10,-10},
-              {-10,10}},                                                                                                                                        rotation = 0)));
-    BasicElements.Electrical.Phasor.Bus          bus10
-                                                      annotation(Placement(visible = true, transformation(origin={214,-10},     extent={{10,-10},
-              {-10,10}},                                                                                                                                         rotation = 0)));
-    BasicElements.Electrical.Phasor.Bus          bus11
-                                                      annotation(Placement(visible = true, transformation(origin={214,-60},     extent={{10,-10},
-              {-10,10}},                                                                                                                                         rotation = 0)));
-    BasicElements.Electrical.Phasor.Filter.LowFreqFilter          lowfreqfilter2 annotation(Placement(visible = true, transformation(origin={251,70},     extent={{10,-10},
-              {-10,10}},                                                                                                                                                                   rotation = 0)));
-    BasicElements.Electrical.Phasor.Filter.HighFreqFilter          highfreqfilter2 annotation(Placement(visible = true, transformation(origin={251,30},     extent={{10,-10},
-              {-10,10}},                                                                                                                                                                     rotation = 0)));
-    BasicElements.Electrical.Phasor.Capacitor          capacitor2 annotation(Placement(visible = true, transformation(origin={250,-10},     extent={{10,-10},
-              {-10,10}},                                                                                                                                                     rotation = 0)));
-    BasicElements.Electrical.Phasor.Ground          ground2 annotation(Placement(visible = true, transformation(origin={286,-25},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    BasicElements.Electrical.Phasor.Transformer2W_Ideal          transformer2w_ideal5 annotation(Placement(visible = true, transformation(origin={175,70},     extent={{10,10},
-              {-10,-10}},                                                                                                                                                                       rotation = 0)));
-    BasicElements.Electrical.Phasor.Transformer2W_Ideal          transformer2w_ideal6 annotation(Placement(visible = true, transformation(origin={176,30},     extent={{10,10},
-              {-10,-10}},                                                                                                                                                                       rotation = 0)));
-    BasicElements.Electrical.Phasor.Transformer2W_Ideal          transformer2w_ideal7 annotation(Placement(visible = true, transformation(origin={176,-11},     extent={{10,10},
-              {-10,-10}},                                                                                                                                                                        rotation = 0)));
-    BasicElements.Electrical.Phasor.Transformer2W_Ideal          transformer2w_ideal8 annotation(Placement(visible = true, transformation(origin={175,-60},     extent={{10,10},
-              {-10,-10}},                                                                                                                                                                        rotation = 0)));
-    BasicElements.Electrical.AC2DC.Converter          converter5 annotation(Placement(visible = true, transformation(origin={138,70},     extent={{10,10},
-              {-10,-10}},                                                                                                                                                  rotation = 0)));
-    BasicElements.Electrical.AC2DC.Converter          converter6 annotation(Placement(visible = true, transformation(origin={138,30},     extent={{10,10},
-              {-10,-10}},                                                                                                                                                  rotation = 0)));
-    BasicElements.Electrical.AC2DC.Converter          converter7 annotation(Placement(visible = true, transformation(origin={138,-10},     extent={{10,10},
-              {-10,-10}},                                                                                                                                                   rotation = 0)));
-    BasicElements.Electrical.AC2DC.Converter          converter8 annotation(Placement(visible = true, transformation(origin={138,-60},     extent={{10,10},
-              {-10,-10}},                                                                                                                                                   rotation = 0)));
-    BasicElements.Electrical.Phasor.PowerPin          powerpin2 annotation(Placement(visible = true, transformation(origin={284,-63},     extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-380, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    BasicElements.Electrical.DC.Inductor inductor4
-      annotation (Placement(transformation(extent={{-172,-124},{-152,-104}})));
-    BasicElements.Electrical.DC.Bus bus12
-      annotation (Placement(transformation(extent={{-198,-124},{-178,-104}})));
-    BasicElements.Electrical.DC.Bus bus13
-      annotation (Placement(transformation(extent={{-142,-124},{-122,-104}})));
-    BasicElements.Electrical.DC.Resistor resistor2
-      annotation (Placement(transformation(extent={{-108,-124},{-88,-104}})));
-    BasicElements.Electrical.DC.Inductor inductor5
-      annotation (Placement(transformation(extent={{-68,-124},{-48,-104}})));
-    BasicElements.Electrical.DC.Capacitor capacitor3 annotation (Placement(
-          transformation(
-          extent={{-10,-10},{10,10}},
-          rotation=-90,
-          origin={-38,-136})));
-    BasicElements.Electrical.DC.Ground ground3
-      annotation (Placement(transformation(extent={{-47,-169},{-27,-149}})));
-    BasicElements.Electrical.DC.Resistor resistor3
-      annotation (Placement(transformation(extent={{15,-124},{35,-104}})));
-    BasicElements.Electrical.DC.Inductor inductor6
-      annotation (Placement(transformation(extent={{-22,-124},{-2,-104}})));
-    BasicElements.Electrical.DC.Bus bus14
-      annotation (Placement(transformation(extent={{42,-124},{62,-104}})));
-    BasicElements.Electrical.DC.Inductor inductor7
-      annotation (Placement(transformation(extent={{63,-124},{83,-104}})));
-    BasicElements.Electrical.DC.Bus bus15
-      annotation (Placement(transformation(extent={{91,-124},{111,-104}})));
-    BasicElements.Electrical.DC.Ground ground4
-      annotation (Placement(transformation(extent={{-190,-9},{-170,11}})));
-    BasicElements.Electrical.DC.Ground ground5
-      annotation (Placement(transformation(extent={{91,-9},{111,11}})));
-    Modelica.Blocks.Sources.Constant const(k=0)
-      annotation (Placement(transformation(extent={{59,35},{79,55}})));
-    Modelica.Blocks.Sources.Constant const1(k=0)
-      annotation (Placement(transformation(extent={{69,-52},{89,-32}})));
-    Modelica.Blocks.Sources.Constant const2(k=0)
-      annotation (Placement(transformation(extent={{-161,39},{-181,59}})));
-    Modelica.Blocks.Sources.Constant const3(k=0)
-      annotation (Placement(transformation(extent={{-160,-56},{-180,-36}})));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Bus bus2 annotation(Placement(visible = true, transformation(origin={-252,54},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Bus bus1 annotation(Placement(visible = true, transformation(origin={-252,94},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Bus bus3 annotation(Placement(visible = true, transformation(origin={-252,14},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Bus bus4 annotation(Placement(visible = true, transformation(origin={-252,-36},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Filter.LowFreqFilter lowfreqfilter1 annotation(Placement(visible = true, transformation(origin={-322,94},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Filter.HighFreqFilter highfreqfilter1 annotation(Placement(visible = true, transformation(origin={-322,54},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Capacitor capacitor1 annotation(Placement(visible = true, transformation(origin={-322,14},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Ground ground1 annotation(Placement(visible = true, transformation(origin={-352,4},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.PowerPin powerpin1 annotation(Placement(visible = true, transformation(origin={-398,0},      extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={-398,0},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal1 annotation(Placement(visible = true, transformation(origin={-222,94},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal2 annotation(Placement(visible = true, transformation(origin={-222,54},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal3 annotation(Placement(visible = true, transformation(origin={-222,14},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal4 annotation(Placement(visible = true, transformation(origin={-222,-36},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter1 annotation(Placement(visible = true, transformation(origin={-182,94},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter2 annotation(Placement(visible = true, transformation(origin={-182,54},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter3 annotation(Placement(visible = true, transformation(origin={-182,14},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter4 annotation(Placement(visible = true, transformation(origin={-182,-36},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    BasicElements.Electrical.DC.Inductor inductor annotation(Placement(transformation(extent={{-134,
+              107},{-114,127}})));
+    BasicElements.Electrical.DC.Bus bus annotation(Placement(transformation(extent={{-160,
+              107},{-140,127}})));
+    BasicElements.Electrical.DC.Bus bus5 annotation(Placement(transformation(extent={{-104,
+              107},{-84,127}})));
+    BasicElements.Electrical.DC.Resistor resistor annotation(Placement(transformation(extent={{-70,107},
+              {-50,127}})));
+    BasicElements.Electrical.DC.Inductor inductor1 annotation(Placement(transformation(extent={{-30,107},
+              {-10,127}})));
+    BasicElements.Electrical.DC.Capacitor capacitor annotation(Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = -90, origin={0,95})));
+    BasicElements.Electrical.DC.Ground ground annotation(Placement(transformation(extent={{-9,62},
+              {11,82}})));
+    BasicElements.Electrical.DC.Resistor resistor1 annotation(Placement(transformation(extent={{53,107},
+              {73,127}})));
+    BasicElements.Electrical.DC.Inductor inductor2 annotation(Placement(transformation(extent={{16,107},
+              {36,127}})));
+    BasicElements.Electrical.DC.Bus bus6 annotation(Placement(transformation(extent={{80,107},
+              {100,127}})));
+    BasicElements.Electrical.DC.Inductor inductor3 annotation(Placement(transformation(extent={{101,107},
+              {121,127}})));
+    BasicElements.Electrical.DC.Bus bus7 annotation(Placement(transformation(extent={{129,107},
+              {149,127}})));
+    BasicElements.Electrical.Phasor.Bus bus8 annotation(Placement(visible = true, transformation(origin={252,54},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Bus bus9 annotation(Placement(visible = true, transformation(origin={252,94},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Bus bus10 annotation(Placement(visible = true, transformation(origin={252,14},     extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Bus bus11 annotation(Placement(visible = true, transformation(origin={252,-36},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Filter.LowFreqFilter lowfreqfilter2 annotation(Placement(visible = true, transformation(origin={289,94},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Filter.HighFreqFilter highfreqfilter2 annotation(Placement(visible = true, transformation(origin={289,54},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Capacitor capacitor2 annotation(Placement(visible = true, transformation(origin={288,14},     extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Ground ground2 annotation(Placement(visible = true, transformation(origin={324,-1},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal5 annotation(Placement(visible = true, transformation(origin={213,94},    extent = {{10, 10}, {-10, -10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal6 annotation(Placement(visible = true, transformation(origin={214,54},    extent = {{10, 10}, {-10, -10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal7 annotation(Placement(visible = true, transformation(origin={214,13},     extent = {{10, 10}, {-10, -10}}, rotation = 0)));
+    BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal8 annotation(Placement(visible = true, transformation(origin={213,-36},    extent = {{10, 10}, {-10, -10}}, rotation = 0)));
+    BasicElements.Electrical.AC2DC.Converter converter5 annotation(Placement(visible = true, transformation(origin={176,94},    extent = {{10, 10}, {-10, -10}}, rotation = 0)));
+    BasicElements.Electrical.AC2DC.Converter converter6 annotation(Placement(visible = true, transformation(origin={176,54},    extent = {{10, 10}, {-10, -10}}, rotation = 0)));
+    BasicElements.Electrical.AC2DC.Converter converter7 annotation(Placement(visible = true, transformation(origin={176,14},     extent = {{10, 10}, {-10, -10}}, rotation = 0)));
+    BasicElements.Electrical.AC2DC.Converter converter8 annotation(Placement(visible = true, transformation(origin={176,-36},    extent = {{10, 10}, {-10, -10}}, rotation = 0)));
+    BasicElements.Electrical.DC.Inductor inductor4 annotation(Placement(transformation(extent={{-134,
+              -100},{-114,-80}})));
+    BasicElements.Electrical.DC.Bus bus12 annotation(Placement(transformation(extent={{-160,
+              -100},{-140,-80}})));
+    BasicElements.Electrical.DC.Bus bus13 annotation(Placement(transformation(extent={{-104,
+              -100},{-84,-80}})));
+    BasicElements.Electrical.DC.Resistor resistor2 annotation(Placement(transformation(extent={{-70,
+              -100},{-50,-80}})));
+    BasicElements.Electrical.DC.Inductor inductor5 annotation(Placement(transformation(extent={{-30,
+              -100},{-10,-80}})));
+    BasicElements.Electrical.DC.Capacitor capacitor3 annotation(Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = -90, origin={0,-112})));
+    BasicElements.Electrical.DC.Ground ground3 annotation(Placement(transformation(extent={{-9,-145},
+              {11,-125}})));
+    BasicElements.Electrical.DC.Resistor resistor3 annotation(Placement(transformation(extent={{53,-100},
+              {73,-80}})));
+    BasicElements.Electrical.DC.Inductor inductor6 annotation(Placement(transformation(extent={{16,-100},
+              {36,-80}})));
+    BasicElements.Electrical.DC.Bus bus14 annotation(Placement(transformation(extent={{80,-100},
+              {100,-80}})));
+    BasicElements.Electrical.DC.Inductor inductor7 annotation(Placement(transformation(extent={{101,
+              -100},{121,-80}})));
+    BasicElements.Electrical.DC.Bus bus15 annotation(Placement(transformation(extent={{129,
+              -100},{149,-80}})));
+    BasicElements.Electrical.DC.Ground ground4 annotation(Placement(transformation(extent={{-152,15},
+              {-132,35}})));
+    BasicElements.Electrical.DC.Ground ground5 annotation(Placement(transformation(extent={{129,15},
+              {149,35}})));
+    Modelica.Blocks.Sources.Constant const(k = 0) annotation(Placement(transformation(extent={{97,59},
+              {117,79}})));
+    Modelica.Blocks.Sources.Constant const1(k = 0) annotation(Placement(transformation(extent={{107,-28},
+              {127,-8}})));
+    Modelica.Blocks.Sources.Constant const2(k = 0) annotation(Placement(transformation(extent={{-123,63},
+              {-143,83}})));
+    Modelica.Blocks.Sources.Constant const3(k = 0) annotation(Placement(transformation(extent={{-122,
+              -32},{-142,-12}})));
+    BasicElements.Electrical.Phasor.PowerPin powerpin2 annotation(Placement(visible = true, transformation(origin={322,-39},    extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={396,0},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   equation
-    connect(converter1.pinDCp, converter2.pinDCn) annotation(Line(points={{-220,60},
-            {-220.464,60},{-220.464,40},{-220,40}},                                                                                                color = {255, 0, 0}));
-    connect(converter3.pinDCn, converter2.pinDCp) annotation(Line(points={{-220,
-            5.55112e-16},{-220.198,5.55112e-16},{-220.198,20},{-220,20}},                                                                                            color = {255, 0, 0}));
-    connect(converter4.pinDCn, converter3.pinDCp) annotation(Line(points={{-220,
-            -50},{-219.933,-50},{-219.933,-20},{-220,-20}},                                                                                            color = {255, 0, 0}));
-    connect(transformer2w_ideal1.negativePin, converter1.pinAC) annotation(Line(points={{-250,70},
-            {-230.026,70},{-230.026,70},{-230,70}},                                                                                                            color = {0, 0, 255}));
-    connect(transformer2w_ideal2.negativePin, converter2.pinAC) annotation(Line(points={{-250,30},
-            {-229.76,30},{-229.76,30},{-230,30}},                                                                                                             color = {0, 0, 255}));
-    connect(transformer2w_ideal3.negativePin, converter3.pinAC) annotation(Line(points={{-250,
-            -10},{-229.495,-10},{-229.495,-10},{-230,-10}},                                                                                                        color = {0, 0, 255}));
-    connect(transformer2w_ideal4.negativePin, converter4.pinAC) annotation(Line(points={{-250,
-            -60},{-229.76,-60},{-229.76,-60},{-230,-60}},                                                                                                         color = {0, 0, 255}));
-    connect(bus4.negativePin, transformer2w_ideal4.positivePin) annotation(Line(points={{-288,
-            -60.2},{-269.869,-60.2},{-269.869,-60},{-270,-60}},                                                                                                          color = {0, 0, 255}));
-    connect(bus3.negativePin, transformer2w_ideal3.positivePin) annotation(Line(points={{-288,
-            -10.2},{-270.135,-10.2},{-270.135,-10},{-270,-10}},                                                                                                          color = {0, 0, 255}));
-    connect(bus2.negativePin, transformer2w_ideal2.positivePin) annotation(Line(points={{-288,
-            29.8},{-269.869,29.8},{-269.869,30},{-270,30}},                                                                                                          color = {0, 0, 255}));
-    connect(bus1.negativePin, transformer2w_ideal1.positivePin) annotation(Line(points={{-288,
-            69.8},{-269.869,69.8},{-269.869,70},{-270,70}},                                                                                                          color = {0, 0, 255}));
-    connect(bus3.negativePin, bus4.negativePin) annotation(Line(points={{-288,
-            -10.2},{-286.603,-10.2},{-286.603,-60.5611},{-288,-60.5611},{-288,
-            -60.2}},                                                                                                                                                       color = {0, 0, 255}));
-    connect(bus2.negativePin, bus3.negativePin) annotation(Line(points={{-288,
-            29.8},{-287.134,29.8},{-287.134,-10.2},{-288,-10.2}},                                                                                    color = {0, 0, 255}));
-    connect(bus1.negativePin, bus2.negativePin) annotation(Line(points={{-288,
-            69.8},{-287.134,69.8},{-287.134,29.8},{-288,29.8}},                                                                                      color = {0, 0, 255}));
-    connect(powerpin1, bus4.positivePin) annotation(Line(points={{-380,-60},{
-            -292.447,-60},{-292.447,-60.2},{-292,-60.2}},                                                                                     color = {0, 0, 255}));
-    connect(ground1.pin, capacitor1.positivePin) annotation(Line(points={{-390,
-            -20},{-389.929,-20},{-389.929,-9.56229},{-370,-9.56229},{-370,-10}},                                                                                            color = {0, 0, 255}));
-    connect(capacitor1.negativePin, bus3.positivePin) annotation(Line(points={{-350,
-            -10},{-291.384,-10},{-291.384,-10.2},{-292,-10.2}},                                                                                            color = {0, 0, 255}));
-    connect(highfreqfilter1.pin, bus2.positivePin) annotation(Line(points={{-350,30},
-            {-292.181,30},{-292.181,29.8},{-292,29.8}},                                                                                             color = {0, 0, 255}));
-    connect(lowfreqfilter1.pin, bus1.positivePin) annotation(Line(points={{-350,70},
-            {-292.712,70},{-292.712,69.8},{-292,69.8}},                                                                                            color = {0, 0, 255}));
-    connect(bus.negativePin, inductor.positivePin) annotation (Line(points={{
-            -186,92.8},{-178.5,92.8},{-178.5,93},{-172,93}}, color={255,0,0}));
-    connect(inductor.negativePin, bus5.positivePin) annotation (Line(points={{
-            -152,93},{-143,93},{-143,92.8},{-134,92.8}}, color={255,0,0}));
-    connect(inductor1.positivePin, resistor.negativePin)
-      annotation (Line(points={{-68,93},{-88,93}}, color={255,0,0}));
-    connect(resistor.positivePin, bus5.negativePin) annotation (Line(points={{
-            -108,93},{-119,93},{-119,92.8},{-130,92.8}}, color={255,0,0}));
-    connect(inductor1.negativePin, capacitor.positivePin)
-      annotation (Line(points={{-48,93},{-38,93},{-38,81}}, color={255,0,0}));
-    connect(capacitor.negativePin, ground.pin)
-      annotation (Line(points={{-38,61},{-38,48},{-37,48}}, color={255,0,0}));
-    connect(inductor2.negativePin, resistor1.positivePin)
-      annotation (Line(points={{-2,93},{15,93}}, color={255,0,0}));
-    connect(inductor2.positivePin, inductor1.negativePin)
-      annotation (Line(points={{-22,93},{-48,93}}, color={255,0,0}));
-    connect(resistor1.negativePin, bus6.positivePin) annotation (Line(points={{
-            35,93},{43,93},{43,92.8},{50,92.8}}, color={255,0,0}));
-    connect(inductor3.positivePin, bus6.negativePin) annotation (Line(points={{
-            63,93},{59,93},{59,92.8},{54,92.8}}, color={255,0,0}));
-    connect(inductor3.negativePin, bus7.positivePin) annotation (Line(points={{
-            83,93},{91,93},{91,92.8},{99,92.8}}, color={255,0,0}));
-    connect(converter1.pinDCn, bus.positivePin) annotation (Line(points={{-220,
-            80},{-219,80},{-219,94},{-190,94},{-190,92.8}}, color={255,0,0}));
-    connect(converter5.pinDCp, bus7.negativePin) annotation (Line(points={{138,
-            80},{138,92.8},{103,92.8}}, color={255,0,0}));
-    connect(converter5.pinDCn, converter6.pinDCp)
-      annotation (Line(points={{138,60},{138,40},{138,40}}, color={255,0,0}));
-    connect(converter6.pinDCn, converter7.pinDCp)
-      annotation (Line(points={{138,20},{138,0}}, color={255,0,0}));
-    connect(converter7.pinDCn, converter8.pinDCp)
-      annotation (Line(points={{138,-20},{138,-50}}, color={255,0,0}));
-    connect(converter5.pinAC, transformer2w_ideal5.negativePin)
-      annotation (Line(points={{148,70},{165,70}}, color={0,0,255}));
-    connect(transformer2w_ideal6.negativePin, converter6.pinAC)
-      annotation (Line(points={{166,30},{148,30}}, color={0,0,255}));
-    connect(transformer2w_ideal7.negativePin, converter7.pinAC) annotation (
-        Line(points={{166,-11},{158,-11},{158,-10},{148,-10}}, color={0,0,255}));
-    connect(transformer2w_ideal8.negativePin, converter8.pinAC)
-      annotation (Line(points={{165,-60},{148,-60}}, color={0,0,255}));
-    connect(transformer2w_ideal5.positivePin, bus9.negativePin) annotation (
-        Line(points={{185,70},{199,70},{199,69.8},{212,69.8}}, color={0,0,255}));
-    connect(transformer2w_ideal6.positivePin, bus8.negativePin) annotation (
-        Line(points={{186,30},{199,30},{199,29.8},{212,29.8}}, color={0,0,255}));
-    connect(transformer2w_ideal7.positivePin, bus10.negativePin) annotation (
-        Line(points={{186,-11},{199,-11},{199,-10.2},{212,-10.2}}, color={0,0,
-            255}));
-    connect(transformer2w_ideal8.positivePin, bus11.negativePin) annotation (
-        Line(points={{185,-60},{199,-60},{199,-60.2},{212,-60.2}}, color={0,0,
-            255}));
-    connect(bus12.negativePin, inductor4.positivePin) annotation (Line(points={
-            {-186,-114.2},{-178.5,-114.2},{-178.5,-114},{-172,-114}}, color={
-            255,0,0}));
-    connect(inductor4.negativePin, bus13.positivePin) annotation (Line(points={
-            {-152,-114},{-143,-114},{-143,-114.2},{-134,-114.2}}, color={255,0,
-            0}));
-    connect(inductor5.positivePin, resistor2.negativePin)
-      annotation (Line(points={{-68,-114},{-88,-114}}, color={255,0,0}));
-    connect(resistor2.positivePin, bus13.negativePin) annotation (Line(points={
-            {-108,-114},{-119,-114},{-119,-114.2},{-130,-114.2}}, color={255,0,
-            0}));
-    connect(inductor5.negativePin, capacitor3.positivePin) annotation (Line(
-          points={{-48,-114},{-38,-114},{-38,-126}}, color={255,0,0}));
-    connect(capacitor3.negativePin, ground3.pin) annotation (Line(points={{-38,
-            -146},{-38,-159},{-37,-159}}, color={255,0,0}));
-    connect(inductor6.negativePin, resistor3.positivePin)
-      annotation (Line(points={{-2,-114},{15,-114}}, color={255,0,0}));
-    connect(inductor6.positivePin, inductor5.negativePin)
-      annotation (Line(points={{-22,-114},{-48,-114}}, color={255,0,0}));
-    connect(resistor3.negativePin, bus14.positivePin) annotation (Line(points={
-            {35,-114},{43,-114},{43,-114.2},{50,-114.2}}, color={255,0,0}));
-    connect(inductor7.positivePin, bus14.negativePin) annotation (Line(points={
-            {63,-114},{59,-114},{59,-114.2},{54,-114.2}}, color={255,0,0}));
-    connect(inductor7.negativePin, bus15.positivePin) annotation (Line(points={
-            {83,-114},{91,-114},{91,-114.2},{99,-114.2}}, color={255,0,0}));
-    connect(bus15.negativePin, converter8.pinDCn) annotation (Line(points={{103,
-            -114.2},{138,-114.2},{138,-70}}, color={255,0,0}));
-    connect(bus12.positivePin, converter4.pinDCp) annotation (Line(points={{
-            -190,-114.2},{-207,-114.2},{-207,-115},{-220,-115},{-220,-70}},
-          color={255,0,0}));
-    connect(bus9.positivePin, lowfreqfilter2.pin) annotation (Line(points={{216,
-            69.8},{229,69.8},{229,70},{241,70}}, color={0,0,255}));
-    connect(bus8.positivePin, highfreqfilter2.pin) annotation (Line(points={{
-            216,29.8},{229,29.8},{229,30},{241,30}}, color={0,0,255}));
-    connect(bus10.positivePin, capacitor2.negativePin) annotation (Line(points=
-            {{216,-10.2},{228,-10.2},{228,-10},{240,-10}}, color={0,0,255}));
-    connect(capacitor2.positivePin, ground2.pin) annotation (Line(points={{260,
-            -10},{286,-10},{286,-25}}, color={0,0,255}));
-    connect(powerpin2, bus11.positivePin) annotation (Line(points={{284,-63},{
-            216,-63},{216,-60.2}}, color={0,0,255}));
-    connect(ground5.pin, converter7.pinDCp) annotation (Line(points={{101,1},{
-            101,10},{138,10},{138,0}}, color={255,0,0}));
-    connect(ground4.pin, converter2.pinDCp) annotation (Line(points={{-180,1},{
-            -180,10},{-220,10},{-220.198,20},{-220,20}}, color={255,0,0}));
-    connect(const.y, converter5.alpha) annotation (Line(points={{80,45},{90,45},
-            {90,71},{128,71},{128,70}}, color={0,0,127}));
-    connect(converter6.alpha, converter5.alpha) annotation (Line(points={{128,
-            30},{124,30},{124,31},{90,31},{90,46},{89,46},{89,45},{90,45},{90,
-            71},{128,71},{128,70}}, color={0,0,127}));
-    connect(converter8.alpha, const1.y) annotation (Line(points={{128,-60},{114,
-            -60},{114,-61},{99,-61},{99,-42},{90,-42}}, color={0,0,127}));
-    connect(converter7.alpha, const1.y) annotation (Line(points={{128,-10},{119,
-            -10},{119,-42},{90,-42}}, color={0,0,127}));
-    connect(const2.y, converter1.alpha) annotation (Line(points={{-182,49},{
-            -184,49},{-184,51},{-192,51},{-192,70},{-210,70}}, color={0,0,127}));
-    connect(converter2.alpha, converter1.alpha) annotation (Line(points={{-210,
-            30},{-204,30},{-204,29},{-192,29},{-192,70},{-210,70}}, color={0,0,
-            127}));
-    connect(const3.y, converter3.alpha) annotation (Line(points={{-181,-46},{
-            -195,-46},{-195,-10},{-210,-10}}, color={0,0,127}));
-    connect(converter4.alpha, converter3.alpha) annotation (Line(points={{-210,
-            -60},{-203,-60},{-203,-61},{-194,-61},{-194,-46},{-195,-46},{-195,
-            -10},{-210,-10}}, color={0,0,127}));
-    annotation(Diagram(coordinateSystem(extent = {{-500, -200}, {500, 200}}, preserveAspectRatio = true, initialScale = 0.1, grid = {1, 1})), Icon(coordinateSystem(extent = {{-500, -200}, {500, 200}}, preserveAspectRatio = true, initialScale = 0.1, grid = {1, 1})));
+    connect(bus10.negativePin, bus11.negativePin) annotation(Line(points={{250,
+            13.8},{248.654,13.8},{248.654,-36.2},{250,-36.2}},                                                                                         color = {0, 0, 255}));
+    connect(bus8.negativePin, bus10.negativePin) annotation(Line(points={{250,
+            53.8},{248.654,53.8},{248.654,13.8},{250,13.8}},                                                                                        color = {0, 0, 255}));
+    connect(bus9.negativePin, bus8.negativePin) annotation(Line(points={{250,
+            93.8},{248.654,93.8},{248.654,53.8},{250,53.8}},                                                                                   color = {0, 0, 255}));
+    connect(converter1.pinDCp, converter2.pinDCn) annotation(Line(points={{-182,84},
+            {-182.464,84},{-182.464,64},{-182,64}},                                                                                  color = {255, 0, 0}));
+    connect(converter3.pinDCn, converter2.pinDCp) annotation(Line(points={{-182,24},
+            {-182.198,24},{-182.198,44},{-182,44}},                                                                                                    color = {255, 0, 0}));
+    connect(converter4.pinDCn, converter3.pinDCp) annotation(Line(points={{-182,
+            -26},{-181.933,-26},{-181.933,4},{-182,4}},                                                                                  color = {255, 0, 0}));
+    connect(transformer2w_ideal1.negativePin, converter1.pinAC) annotation(Line(points={{-212,94},
+            {-192,94}},                                                                                                                            color = {0, 0, 255}));
+    connect(transformer2w_ideal2.negativePin, converter2.pinAC) annotation(Line(points={{-212,54},
+            {-192,54}},                                                                                                                          color = {0, 0, 255}));
+    connect(transformer2w_ideal3.negativePin, converter3.pinAC) annotation(Line(points={{-212,14},
+            {-192,14}},                                                                                                                                color = {0, 0, 255}));
+    connect(transformer2w_ideal4.negativePin, converter4.pinAC) annotation(Line(points={{-212,
+            -36},{-192,-36}},                                                                                                                        color = {0, 0, 255}));
+    connect(bus4.negativePin, transformer2w_ideal4.positivePin) annotation(Line(points={{-250,
+            -36.2},{-231.869,-36.2},{-231.869,-36},{-232,-36}},                                                                                            color = {0, 0, 255}));
+    connect(bus3.negativePin, transformer2w_ideal3.positivePin) annotation(Line(points={{-250,
+            13.8},{-232.135,13.8},{-232.135,14},{-232,14}},                                                                                                color = {0, 0, 255}));
+    connect(bus2.negativePin, transformer2w_ideal2.positivePin) annotation(Line(points={{-250,
+            53.8},{-231.869,53.8},{-231.869,54},{-232,54}},                                                                                            color = {0, 0, 255}));
+    connect(bus1.negativePin, transformer2w_ideal1.positivePin) annotation(Line(points={{-250,
+            93.8},{-231.869,93.8},{-231.869,94},{-232,94}},                                                                                            color = {0, 0, 255}));
+    connect(bus3.negativePin, bus4.negativePin) annotation(Line(points={{-250,
+            13.8},{-248.603,13.8},{-248.603,-36.5611},{-250,-36.5611},{-250,
+            -36.2}},                                                                                                                                                color = {0, 0, 255}));
+    connect(bus2.negativePin, bus3.negativePin) annotation(Line(points={{-250,
+            53.8},{-249.134,53.8},{-249.134,13.8},{-250,13.8}},                                                                              color = {0, 0, 255}));
+    connect(bus1.negativePin, bus2.negativePin) annotation(Line(points={{-250,
+            93.8},{-249.134,93.8},{-249.134,53.8},{-250,53.8}},                                                                            color = {0, 0, 255}));
+    connect(ground1.pin, capacitor1.positivePin) annotation(Line(points={{-352,4},
+            {-351.929,4},{-351.929,14.4377},{-332,14.4377},{-332,14}},                                                                                         color = {0, 0, 255}));
+    connect(capacitor1.negativePin, bus3.positivePin) annotation(Line(points={{-312,14},
+            {-253.384,14},{-253.384,13.8},{-254,13.8}},                                                                                          color = {0, 0, 255}));
+    connect(highfreqfilter1.pin, bus2.positivePin) annotation(Line(points={{-312,54},
+            {-254.181,54},{-254.181,53.8},{-254,53.8}},                                                                                   color = {0, 0, 255}));
+    connect(lowfreqfilter1.pin, bus1.positivePin) annotation(Line(points={{-312,94},
+            {-254.712,94},{-254.712,93.8},{-254,93.8}},                                                                                  color = {0, 0, 255}));
+    connect(bus.negativePin, inductor.positivePin) annotation(Line(points={{-148,
+            116.8},{-140.5,116.8},{-140.5,117},{-134,117}},                                                                           color = {255, 0, 0}));
+    connect(inductor.negativePin, bus5.positivePin) annotation(Line(points={{-114,
+            117},{-105,117},{-105,116.8},{-96,116.8}},                                                                             color = {255, 0, 0}));
+    connect(inductor1.positivePin, resistor.negativePin) annotation(Line(points={{-30,117},
+            {-50,117}},                                                                                   color = {255, 0, 0}));
+    connect(resistor.positivePin, bus5.negativePin) annotation(Line(points={{-70,117},
+            {-81,117},{-81,116.8},{-92,116.8}},                                                                                    color = {255, 0, 0}));
+    connect(inductor1.negativePin, capacitor.positivePin) annotation(Line(points={{-10,117},
+            {0,117},{0,105}},                                                                                         color = {255, 0, 0}));
+    connect(capacitor.negativePin, ground.pin) annotation(Line(points={{0,85},{
+            0,72},{1,72}},                                                                                 color = {255, 0, 0}));
+    connect(inductor2.negativePin, resistor1.positivePin) annotation(Line(points={{36,117},
+            {53,117}},                                                                                   color = {255, 0, 0}));
+    connect(inductor2.positivePin, inductor1.negativePin) annotation(Line(points={{16,117},
+            {-10,117}},                                                                                    color = {255, 0, 0}));
+    connect(resistor1.negativePin, bus6.positivePin) annotation(Line(points={{73,117},
+            {81,117},{81,116.8},{88,116.8}},                                                                                color = {255, 0, 0}));
+    connect(inductor3.positivePin, bus6.negativePin) annotation(Line(points={{101,117},
+            {97,117},{97,116.8},{92,116.8}},                                                                                color = {255, 0, 0}));
+    connect(inductor3.negativePin, bus7.positivePin) annotation(Line(points={{121,117},
+            {129,117},{129,116.8},{137,116.8}},                                                                             color = {255, 0, 0}));
+    connect(converter1.pinDCn, bus.positivePin) annotation(Line(points={{-182,
+            104},{-181,104},{-181,118},{-152,118},{-152,116.8}},                                                                         color = {255, 0, 0}));
+    connect(converter5.pinDCp, bus7.negativePin) annotation(Line(points={{176,104},
+            {176,116.8},{141,116.8}},                                                                            color = {255, 0, 0}));
+    connect(converter5.pinDCn, converter6.pinDCp) annotation(Line(points={{176,84},
+            {176,64}},                                                                                        color = {255, 0, 0}));
+    connect(converter6.pinDCn, converter7.pinDCp) annotation(Line(points={{176,44},
+            {176,24}},                                                                            color = {255, 0, 0}));
+    connect(converter7.pinDCn, converter8.pinDCp) annotation(Line(points={{176,4},
+            {176,-26}},                                                                              color = {255, 0, 0}));
+    connect(converter5.pinAC, transformer2w_ideal5.negativePin) annotation(Line(points={{186,94},
+            {203,94}},                                                                                           color = {0, 0, 255}));
+    connect(transformer2w_ideal6.negativePin, converter6.pinAC) annotation(Line(points={{204,54},
+            {186,54}},                                                                                           color = {0, 0, 255}));
+    connect(transformer2w_ideal7.negativePin, converter7.pinAC) annotation(Line(points={{204,13},
+            {196,13},{196,14},{186,14}},                                                                                                   color = {0, 0, 255}));
+    connect(transformer2w_ideal8.negativePin, converter8.pinAC) annotation(Line(points={{203,-36},
+            {186,-36}},                                                                                            color = {0, 0, 255}));
+    connect(transformer2w_ideal5.positivePin, bus9.negativePin) annotation(Line(points={{223,94},
+            {237,94},{237,93.8},{250,93.8}},                                                                                               color = {0, 0, 255}));
+    connect(transformer2w_ideal6.positivePin, bus8.negativePin) annotation(Line(points={{224,54},
+            {237,54},{237,53.8},{250,53.8}},                                                                                               color = {0, 0, 255}));
+    connect(transformer2w_ideal7.positivePin, bus10.negativePin) annotation(Line(points={{224,13},
+            {237,13},{237,13.8},{250,13.8}},                                                                                                    color = {0, 0, 255}));
+    connect(transformer2w_ideal8.positivePin, bus11.negativePin) annotation(Line(points={{223,-36},
+            {237,-36},{237,-36.2},{250,-36.2}},                                                                                                 color = {0, 0, 255}));
+    connect(bus12.negativePin, inductor4.positivePin) annotation(Line(points={{-148,
+            -90.2},{-140.5,-90.2},{-140.5,-90},{-134,-90}},                                                                                      color = {255, 0, 0}));
+    connect(inductor4.negativePin, bus13.positivePin) annotation(Line(points={{-114,
+            -90},{-105,-90},{-105,-90.2},{-96,-90.2}},                                                                                       color = {255, 0, 0}));
+    connect(inductor5.positivePin, resistor2.negativePin) annotation(Line(points={{-30,-90},
+            {-50,-90}},                                                                                        color = {255, 0, 0}));
+    connect(resistor2.positivePin, bus13.negativePin) annotation(Line(points={{-70,-90},
+            {-81,-90},{-81,-90.2},{-92,-90.2}},                                                                                              color = {255, 0, 0}));
+    connect(inductor5.negativePin, capacitor3.positivePin) annotation(Line(points={{-10,-90},
+            {0,-90},{0,-102}},                                                                                               color = {255, 0, 0}));
+    connect(capacitor3.negativePin, ground3.pin) annotation(Line(points={{0,-122},
+            {0,-135},{1,-135}},                                                                                    color = {255, 0, 0}));
+    connect(inductor6.negativePin, resistor3.positivePin) annotation(Line(points={{36,-90},
+            {53,-90}},                                                                                       color = {255, 0, 0}));
+    connect(inductor6.positivePin, inductor5.negativePin) annotation(Line(points={{16,-90},
+            {-10,-90}},                                                                                        color = {255, 0, 0}));
+    connect(resistor3.negativePin, bus14.positivePin) annotation(Line(points={{73,-90},
+            {81,-90},{81,-90.2},{88,-90.2}},                                                                                         color = {255, 0, 0}));
+    connect(inductor7.positivePin, bus14.negativePin) annotation(Line(points={{101,-90},
+            {97,-90},{97,-90.2},{92,-90.2}},                                                                                         color = {255, 0, 0}));
+    connect(inductor7.negativePin, bus15.positivePin) annotation(Line(points={{121,-90},
+            {129,-90},{129,-90.2},{137,-90.2}},                                                                                      color = {255, 0, 0}));
+    connect(bus15.negativePin, converter8.pinDCn) annotation(Line(points={{141,
+            -90.2},{176,-90.2},{176,-46}},                                                                             color = {255, 0, 0}));
+    connect(bus12.positivePin, converter4.pinDCp) annotation(Line(points={{-152,
+            -90.2},{-169,-90.2},{-169,-91},{-182,-91},{-182,-46}},                                                                                    color = {255, 0, 0}));
+    connect(bus9.positivePin, lowfreqfilter2.pin) annotation(Line(points={{254,
+            93.8},{267,93.8},{267,94},{279,94}},                                                                             color = {0, 0, 255}));
+    connect(bus8.positivePin, highfreqfilter2.pin) annotation(Line(points={{254,
+            53.8},{267,53.8},{267,54},{279,54}},                                                                              color = {0, 0, 255}));
+    connect(bus10.positivePin, capacitor2.negativePin) annotation(Line(points={{254,
+            13.8},{266,13.8},{266,14},{278,14}},                                                                                      color = {0, 0, 255}));
+    connect(capacitor2.positivePin, ground2.pin) annotation(Line(points={{298,14},
+            {324,14},{324,-1}},                                                                                 color = {0, 0, 255}));
+    connect(powerpin2, bus11.positivePin) annotation(Line(points={{322,-39},{
+            254,-39},{254,-36.2}},                                                                         color = {0, 0, 255}));
+    connect(ground5.pin, converter7.pinDCp) annotation(Line(points={{139,25},{
+            139,34},{176,34},{176,24}},                                                                          color = {255, 0, 0}));
+    connect(ground4.pin, converter2.pinDCp) annotation(Line(points={{-142,25},{
+            -142,34},{-182,34},{-182.198,44},{-182,44}},                                                                              color = {255, 0, 0}));
+    connect(const.y, converter5.alpha) annotation(Line(points={{118,69},{128,69},
+            {128,95},{166,95},{166,94}},                                                                              color = {0, 0, 127}));
+    connect(converter6.alpha, converter5.alpha) annotation(Line(points={{166,54},
+            {162,54},{162,55},{128,55},{128,70},{127,70},{127,69},{128,69},{128,
+            95},{166,95},{166,94}},                                                                                                                                                           color = {0, 0, 127}));
+    connect(converter8.alpha, const1.y) annotation(Line(points={{166,-36},{152,
+            -36},{152,-37},{137,-37},{137,-18},{128,-18}},                                                                              color = {0, 0, 127}));
+    connect(converter7.alpha, const1.y) annotation(Line(points={{166,14},{157,
+            14},{157,-18},{128,-18}},                                                                             color = {0, 0, 127}));
+    connect(const2.y, converter1.alpha) annotation(Line(points={{-144,73},{-146,
+            73},{-146,75},{-154,75},{-154,94},{-172,94}},                                                                                  color = {0, 0, 127}));
+    connect(converter2.alpha, converter1.alpha) annotation(Line(points={{-172,54},
+            {-166,54},{-166,53},{-154,53},{-154,94},{-172,94}},                                                                                    color = {0, 0, 127}));
+    connect(const3.y, converter3.alpha) annotation(Line(points={{-143,-22},{
+            -157,-22},{-157,14},{-172,14}},                                                                            color = {0, 0, 127}));
+    connect(converter4.alpha, converter3.alpha) annotation(Line(points={{-172,
+            -36},{-165,-36},{-165,-37},{-156,-37},{-156,-22},{-157,-22},{-157,
+            14},{-172,14}},                                                                                                                                                        color = {0, 0, 127}));
+    connect(powerpin1, bus4.positivePin) annotation (Line(points={{-398,0},{
+            -288,0},{-288,-36.2},{-254,-36.2}}, color={0,0,255}));
+    annotation(Diagram(coordinateSystem(extent={{-400,-150},{400,150}},      preserveAspectRatio = true, initialScale=0.1)),                  Icon(coordinateSystem(extent={{-400,
+              -150},{400,150}},                                                                                                                                                                          preserveAspectRatio = true, initialScale=0.1),
+          graphics={
+          Rectangle(extent={{-300,80},{300,-60}}, lineColor={28,108,200}),
+          Line(points={{-398,0},{-300,0}}, color={28,108,200}),
+          Line(points={{300,0},{396,0}}, color={28,108,200}),
+          Text(
+            extent={{-94,66},{106,-34}},
+            lineColor={28,108,200},
+            textString="%name")}));
   end HVDC_12pulse_bipolar;
   annotation(uses(Modelica(version = "3.2.2")));
 end HVDC_LCC;
