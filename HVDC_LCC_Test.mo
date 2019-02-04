@@ -175,5 +175,21 @@ package HVDC_LCC_Test
       end Tests;
     end Control;
   end BasicElements;
+
+  model HVDC_12pulse_bipolar_test01
+    HVDC_LCC.HVDC_12pulse_bipolar hVDC_12pulse_bipolar
+      annotation (Placement(transformation(extent={{-38,-16},{42,14}})));
+    HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltageSource
+      annotation (Placement(transformation(extent={{-84,-10},{-64,10}})));
+    HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltageSource1
+      annotation (Placement(transformation(extent={{76,8},{56,-12}})));
+  equation
+    connect(voltageSource.pin, hVDC_12pulse_bipolar.powerpin1) annotation (Line(
+          points={{-64.2,0},{-50,0},{-50,-1},{-37.8,-1}}, color={0,0,255}));
+    connect(voltageSource1.pin, hVDC_12pulse_bipolar.powerpin2) annotation (
+        Line(points={{56.2,-2},{48,-2},{48,-1},{41.6,-1}}, color={0,0,255}));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+          coordinateSystem(preserveAspectRatio=false)));
+  end HVDC_12pulse_bipolar_test01;
   annotation(uses(Modelica(version = "3.2.2")));
 end HVDC_LCC_Test;
