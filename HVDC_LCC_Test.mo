@@ -54,7 +54,7 @@ package HVDC_LCC_Test
 
         model testTransformer2W
           HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltagesource1 annotation(Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal1 annotation(Placement(visible = true, transformation(origin = {-50, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal1(phaseShift = 90) annotation(Placement(visible = true, transformation(origin = {-50, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
           HVDC_LCC.BasicElements.Electrical.Phasor.Resistor resistor1 annotation(Placement(visible = true, transformation(origin = {-20, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
           HVDC_LCC.BasicElements.Electrical.Phasor.Reactor reactor1(XL = 0) annotation(Placement(visible = true, transformation(origin = {20, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
           HVDC_LCC.BasicElements.Electrical.Phasor.Ground ground1 annotation(Placement(visible = true, transformation(origin = {50, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -130,10 +130,10 @@ package HVDC_LCC_Test
       end DC;
 
       package AC2DC
-        model testConverter
+        model testConverter01
           HVDC_LCC.BasicElements.Electrical.DC.Ground ground1 annotation(Placement(visible = true, transformation(origin = {-40, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter1(Rc = 0, Xc = 0.57) annotation(Placement(visible = true, transformation(origin = {-40, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltagesource1(Vang = 7.08, Vmag = 0.985 * 200 * 1000) annotation(Placement(visible = true, transformation(origin = {-80, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          HVDC_LCC.BasicElements.Electrical.AC2DC.Thyristor converter1(Rc = 0, Xc = 0.57) annotation(Placement(visible = true, transformation(origin = {-40, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltagesource1(Vang = 0, Vmag = 1.987 * 1e5) annotation(Placement(visible = true, transformation(origin = {-80, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
           HVDC_LCC.BasicElements.Electrical.DC.Resistor resistor1 annotation(Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
           Modelica.Blocks.Sources.Constant const(k = 68.07 / 180 * Modelica.Constants.pi) annotation(Placement(visible = true, transformation(origin = {0, -20}, extent = {{5, -5}, {-5, 5}}, rotation = 0)));
           HVDC_LCC.BasicElements.Electrical.DC.VoltageSource voltagesource2(Vmag = 9.96 * 10000) annotation(Placement(visible = true, transformation(origin = {40, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
@@ -144,28 +144,25 @@ package HVDC_LCC_Test
           connect(voltagesource1.pin, converter1.pinAC) annotation(Line(points = {{-70.2, -20}, {-50.4065, -20}, {-50.4065, -20.3252}, {-50.4065, -20.3252}}, color = {0, 0, 255}));
           connect(converter1.pinDCp, ground1.pin) annotation(Line(points = {{-40, -30}, {-39.8374, -30}, {-39.8374, -40}, {-40, -40}}, color = {255, 0, 0}));
           annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})), Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})));
-        end testConverter;
+        end testConverter01;
 
-        model testConverter2
-          HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter1(Rc = 0, Xc = 0.57) annotation(Placement(visible = true, transformation(origin = {-40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.AC2DC.Converter converter2(Rc = 0, Xc = 0.57) annotation(Placement(visible = true, transformation(origin = {40, 0}, extent = {{10, 10}, {-10, -10}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.DC.Resistor resistor1 annotation(Placement(visible = true, transformation(origin = {0, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.DC.Ground ground1 annotation(Placement(visible = true, transformation(origin = {-40, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltagesource1(Vmag = 0.985 * 200 * 1e3, Vang = 7.08) annotation(Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-          Modelica.Blocks.Sources.Constant const(k = 72.25 / 180 * Modelica.Constants.pi) annotation(Placement(visible = true, transformation(origin = {20, 0}, extent = {{-5, -5}, {5, 5}}, rotation = 0)));
-          Modelica.Blocks.Sources.Constant constant1(k = 68.07 / 180 * Modelica.Constants.pi) annotation(Placement(visible = true, transformation(origin = {-20, 0}, extent = {{5, -5}, {-5, 5}}, rotation = 0)));
-          HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltagesource2(Vmag = 0.9683 * 200 * 1e3, Vang = 7.29) annotation(Placement(visible = true, transformation(origin = {60, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+        model testConverter02
+          HVDC_LCC.BasicElements.Electrical.AC2DC.Thyristor converter1(Rc = 0, Xc = 0.57) annotation(Placement(visible = true, transformation(origin = {0, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          HVDC_LCC.BasicElements.Electrical.DC.Ground ground1 annotation(Placement(visible = true, transformation(origin = {0, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          HVDC_LCC.BasicElements.Electrical.DC.Resistor resistor1 annotation(Placement(visible = true, transformation(origin = {40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          Modelica.Blocks.Sources.Constant const(k = 68.07 / 180 * Modelica.Constants.pi) annotation(Placement(visible = true, transformation(origin = {40, -20}, extent = {{5, -5}, {-5, 5}}, rotation = 0)));
+          HVDC_LCC.BasicElements.Electrical.DC.VoltageSource voltagesource2(Vmag = 9.96 * 10000) annotation(Placement(visible = true, transformation(origin = {80, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+          HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltagesource1(Vang = 6.074, Vmag = 0.9934 * 200 * 1000) annotation(Placement(visible = true, transformation(origin = {-80, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+          HVDC_LCC.BasicElements.Electrical.Phasor.Transformer2W_Ideal transformer2w_ideal1 annotation(Placement(visible = true, transformation(origin = {-40, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
         equation
-          connect(voltagesource2.pin, converter2.pinAC) annotation(Line(points = {{50.2, 0}, {50.3991, 0}, {50.3991, 0}, {50, 0}}, color = {0, 0, 255}));
-          connect(const.y, converter2.alpha) annotation(Line(points = {{25.5, 0}, {30.3523, 0}, {30.3523, -0.271003}, {30.3523, -0.271003}}, color = {0, 0, 127}));
-          connect(converter1.alpha, constant1.y) annotation(Line(points = {{-30, 0}, {-25.4743, 0}, {-25.4743, 0}, {-25.4743, 0}}, color = {0, 0, 127}));
-          connect(voltagesource1.pin, converter1.pinAC) annotation(Line(points = {{-70.2, 0}, {-49.5935, 0}, {-49.5935, 0.542005}, {-49.5935, 0.542005}}, color = {0, 0, 255}));
-          connect(converter2.pinDCn, ground1.pin) annotation(Line(points = {{40, -10}, {40.3794, -10}, {40.3794, -39.8374}, {-40.3794, -39.8374}, {-40.3794, -39.8374}}, color = {255, 0, 0}));
-          connect(ground1.pin, converter1.pinDCp) annotation(Line(points = {{-40, -40}, {-39.5664, -40}, {-39.5664, -11.1111}, {-39.5664, -11.1111}}, color = {255, 0, 0}));
-          connect(resistor1.negativePin, converter2.pinDCp) annotation(Line(points = {{10, 20}, {40.3794, 20}, {40.3794, 9.48509}, {40.3794, 9.48509}}, color = {255, 0, 0}));
-          connect(converter1.pinDCn, resistor1.positivePin) annotation(Line(points = {{-40, 10}, {-40.1084, 10}, {-40.1084, 20.0542}, {-9.48509, 20.0542}, {-9.48509, 20.0542}}, color = {255, 0, 0}));
+          connect(transformer2w_ideal1.negativePin, converter1.pinAC) annotation(Line(points = {{-30, -20}, {-10.5802, -20}, {-10.5802, -19.7952}, {-10.5802, -19.7952}}, color = {0, 0, 255}));
+          connect(voltagesource1.pin, transformer2w_ideal1.positivePin) annotation(Line(points = {{-70.2, -20}, {-49.4881, -20}, {-49.4881, -19.7952}, {-49.4881, -19.7952}}, color = {0, 0, 255}));
+          connect(resistor1.negativePin, voltagesource2.pin) annotation(Line(points = {{50, 0}, {79.6807, 0}, {79.6807, -10.0342}, {79.6807, -10.0342}}, color = {255, 0, 0}));
+          connect(const.y, converter1.alpha) annotation(Line(points = {{34.5, -20}, {10.1897, -20}, {10.1897, -20.0542}, {10.1897, -20.0542}}, color = {0, 0, 127}));
+          connect(converter1.pinDCn, resistor1.positivePin) annotation(Line(points = {{0, -10}, {-0.379398, -10}, {-0.379398, 0}, {28.6179, 0}, {28.6179, 0}}, color = {255, 0, 0}));
+          connect(converter1.pinDCp, ground1.pin) annotation(Line(points = {{0, -30}, {0.162601, -30}, {0.162601, -40}, {0, -40}}, color = {255, 0, 0}));
           annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})), Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})));
-        end testConverter2;
+        end testConverter02;
         annotation(Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})), Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})));
       end AC2DC;
     end Electrical;
@@ -177,19 +174,13 @@ package HVDC_LCC_Test
   end BasicElements;
 
   model HVDC_12pulse_bipolar_test01
-    HVDC_LCC.HVDC_12pulse_bipolar hVDC_12pulse_bipolar
-      annotation (Placement(transformation(extent={{-38,-16},{42,14}})));
-    HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltageSource
-      annotation (Placement(transformation(extent={{-84,-10},{-64,10}})));
-    HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltageSource1
-      annotation (Placement(transformation(extent={{76,8},{56,-12}})));
+    HVDC_LCC.HVDC_12pulse_bipolar hVDC_12pulse_bipolar annotation(Placement(transformation(extent = {{-38, -16}, {42, 14}})));
+    HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltageSource annotation(Placement(transformation(extent = {{-84, -10}, {-64, 10}})));
+    HVDC_LCC.BasicElements.Electrical.Phasor.VoltageSource voltageSource1 annotation(Placement(transformation(extent = {{76, 8}, {56, -12}})));
   equation
-    connect(voltageSource.pin, hVDC_12pulse_bipolar.powerpin1) annotation (Line(
-          points={{-64.2,0},{-50,0},{-50,-1},{-37.8,-1}}, color={0,0,255}));
-    connect(voltageSource1.pin, hVDC_12pulse_bipolar.powerpin2) annotation (
-        Line(points={{56.2,-2},{48,-2},{48,-1},{41.6,-1}}, color={0,0,255}));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)));
+    connect(voltageSource.pin, hVDC_12pulse_bipolar.powerpin1) annotation(Line(points = {{-64.2, 0}, {-50, 0}, {-50, -1}, {-37.8, -1}}, color = {0, 0, 255}));
+    connect(voltageSource1.pin, hVDC_12pulse_bipolar.powerpin2) annotation(Line(points = {{56.2, -2}, {48, -2}, {48, -1}, {41.6, -1}}, color = {0, 0, 255}));
+    annotation(Icon(coordinateSystem(preserveAspectRatio = false)), Diagram(coordinateSystem(preserveAspectRatio = false)));
   end HVDC_12pulse_bipolar_test01;
   annotation(uses(Modelica(version = "3.2.2")));
 end HVDC_LCC_Test;
